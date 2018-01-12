@@ -1,0 +1,48 @@
+package ewing.application.paging;
+
+import java.util.List;
+
+/**
+ * 分页数据。
+ *
+ * @author Ewing
+ **/
+public class Page<T> {
+    private long total;
+
+    private List<T> rows;
+
+    public Page() {
+    }
+
+    public Page(List<T> rows) {
+        if (rows == null) {
+            return;
+        }
+        this.rows = rows;
+        this.total = rows.size();
+    }
+
+    public Page(long total, List<T> rows) {
+        this.total = total;
+        this.rows = rows;
+    }
+
+    public long getTotal() {
+        return total;
+    }
+
+    public Page<T> setTotal(long total) {
+        this.total = total;
+        return this;
+    }
+
+    public List<T> getRows() {
+        return rows;
+    }
+
+    public Page<T> setRows(List<T> rows) {
+        this.rows = rows;
+        return this;
+    }
+}
