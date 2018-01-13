@@ -77,7 +77,7 @@ public class QueryHelper {
     }
 
     /**
-     * 根据属性匹配Expression并添加绑定到MapBuilder。
+     * 根据属性匹配Expression并添加绑定到Map中。
      * 实现逻辑参考自QBean.createBindings方法。
      */
     private static void matchBindings(
