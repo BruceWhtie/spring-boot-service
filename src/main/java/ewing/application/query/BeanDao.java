@@ -281,8 +281,9 @@ public class BeanDao implements BaseDao {
         }
         List<Object> values = insert.isEmpty() ? Collections.emptyList()
                 : insert.executeWithKeys(keyPath);
+        String name = keyPath.getMetadata().getName();
         for (int i = 0; i < beans.length && i < values.size(); i++) {
-            setBeanProperty(beans[i], keyPath.getMetadata().getName(), values.get(i));
+            setBeanProperty(beans[i], name, values.get(i));
         }
         return (List<T>) values;
     }
