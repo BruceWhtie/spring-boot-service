@@ -94,7 +94,7 @@ public class BeanDao implements BaseDao {
     /**
      * 获取Bean的属性Setter。
      */
-    private Method findSetter(Object bean, String name, Class type) {
+    protected Method findSetter(Object bean, String name, Class type) {
         String methodName = "set" + BeanUtils.capitalize(name);
         Class beanClass = bean.getClass();
         while (beanClass != null && !beanClass.equals(Object.class)) {
@@ -138,6 +138,21 @@ public class BeanDao implements BaseDao {
         return queryFactory.select(expression)
                 .from(base)
                 .where(keyEquals(key))
+                .fetchOne();
+    }
+
+    @Override
+    public <E> E selectOne(Predicate predicate) {
+        return (E) queryFactory.selectFrom(base)
+                .where(predicate)
+                .fetchOne();
+    }
+
+    @Override
+    public <E> E selectOne(Predicate predicate, Expression<E> expression) {
+        return queryFactory.select(expression)
+                .from(base)
+                .where(predicate)
                 .fetchOne();
     }
 

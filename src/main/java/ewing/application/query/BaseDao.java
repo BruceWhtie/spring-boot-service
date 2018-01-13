@@ -25,6 +25,16 @@ public interface BaseDao {
     <E> E selectByKey(Object key, Expression<E> expression);
 
     /**
+     * 根据ID查询唯一的实体对象。
+     */
+    <E> E selectOne(Predicate predicate);
+
+    /**
+     * 根据ID查询唯一的指定结果。
+     */
+    <E> E selectOne(Predicate predicate, Expression<E> expression);
+
+    /**
      * 根据条件表达式查询总数。
      */
     long countWhere(Predicate predicate);
