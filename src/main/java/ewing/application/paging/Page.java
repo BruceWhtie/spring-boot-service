@@ -1,6 +1,7 @@
 package ewing.application.paging;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * 分页数据。
@@ -43,6 +44,13 @@ public class Page<T> {
 
     public Page<T> setRows(List<T> rows) {
         this.rows = rows;
+        return this;
+    }
+
+    public Page<T> forEach(Consumer<T> consumer){
+        if(rows!=null && rows.size()>0) {
+            this.rows.forEach(consumer);
+        }
         return this;
     }
 }
