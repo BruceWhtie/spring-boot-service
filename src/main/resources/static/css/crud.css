@@ -46,27 +46,6 @@ form > label {
     width: 200px;
 }
 
-/* 公共属性 */
-.form-width {
-    width: 430px;
-}
-
-.no-margin {
-    margin: 0;
-}
-
-.no-padding {
-    padding: 0;
-}
-
-.color-white {
-    color: white;
-}
-
-.color-black {
-    color: black;
-}
-
 /* 表单样式 */
 .form-tree-pan {
     width: 430px;

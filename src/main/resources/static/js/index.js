@@ -31,8 +31,8 @@ $(function () {
     });
     // 切换主题
     $('.switch-skins').click(function () {
-        var skinname = $(this).attr('skinname');
-        $('body').attr("id", skinname);
+        var skin = $(this).attr('data-skin');
+        $('body').attr("id", skin);
     });
 });
 
@@ -40,10 +40,12 @@ $(function () {
 function changeFrameHeight(ifm) {
     ifm.height = document.documentElement.clientHeight - 110;
 }
+
 function resizeFrameHeight() {
     $('.tab_iframe').css('height', document.documentElement.clientHeight - 110);
     $('md-tab-content').css('left', '0');
 }
+
 window.onresize = function () {
     resizeFrameHeight();
     initScrollShow();
@@ -73,7 +75,7 @@ $(function () {
             > document.getElementById('tabs').clientWidth) {
             var left = $('.content_tab>ul').scrollLeft()
                 + (($(this).position().left + $(this).width() - marginLeft)
-                - document.getElementById('tabs').clientWidth);
+                    - document.getElementById('tabs').clientWidth);
             $('.content_tab>ul').animate({scrollLeft: left}, 200, function () {
                 initScrollState();
             });
@@ -94,7 +96,7 @@ $(function () {
             });
     });
     // 选项卡右键菜单
-    var menu = new BootstrapMenu('.tabs li', {
+    new BootstrapMenu('.tabs li', {
         fetchElementData: function (item) {
             return item;
         },
@@ -108,7 +110,7 @@ $(function () {
                 name: '关闭',
                 iconClass: 'fa fa-close',
                 onClick: function (item) {
-                    Tab.closeTab($(item));
+                    closeTab($(item));
                 }
             },
             closeOther: {
@@ -118,7 +120,7 @@ $(function () {
                     var index = $(item).data('index');
                     $('.content_tab li').each(function () {
                         if ($(this).data('index') != index) {
-                            Tab.closeTab($(this));
+                            closeTab($(this));
                         }
                     });
                 }
@@ -128,7 +130,7 @@ $(function () {
                 iconClass: 'fa fa-window-close-o',
                 onClick: function () {
                     $('.content_tab li').each(function () {
-                        Tab.closeTab($(this));
+                        closeTab($(this));
                     });
                 }
             },
@@ -139,7 +141,7 @@ $(function () {
                     var index = $(item).data('index');
                     $('.content_tab li').each(function () {
                         if ($(this).data('index') != index) {
-                            Tab.closeTab($(this));
+                            closeTab($(this));
                         } else {
                             return false;
                         }
@@ -153,7 +155,7 @@ $(function () {
                     var index = $(item).data('index');
                     $($('.content_tab li').toArray().reverse()).each(function () {
                         if ($(this).data('index') != index) {
-                            Tab.closeTab($(this));
+                            closeTab($(this));
                         } else {
                             return false;
                         }
@@ -174,51 +176,51 @@ $(function () {
 });
 
 // 选项卡对象
-var Tab = {
-    addTab: function (title, url) {
-        // 选项卡标识符为url中的数字和字母
-        var index = url.replace(/[^a-zA-Z0-9]+/g, '_');
-        // 激活或者创建新选项卡
-        if ($('#tab_' + index).length == 0) {
-            // 添加选项卡
-            $('.content_tab li').removeClass('cur');
-            var tab = '<li id="tab_' + index + '" data-index="' + index + '" class="cur">' +
-                '<a class="waves-effect waves-light">' + title + '</a></li>';
-            $('.content_tab>ul').append(tab);
-            // 添加iframe
-            $('.iframe').removeClass('cur');
-            var iframe = '<div id="iframe_' + index + '" class="iframe cur">' +
-                '<iframe class="tab_iframe" src="' + url + '" width="100%" frameborder="0"' +
-                ' scrolling="auto" onload="changeFrameHeight(this)"></iframe></div>';
-            $('.content_main').append(iframe);
-            initScrollShow();
-            $('.content_tab>ul').animate({
-                scrollLeft: document.getElementById('tabs').scrollWidth
-                - document.getElementById('tabs').clientWidth
-            }, 200, function () {
-                initScrollState();
-            });
-        } else {
-            $('#tab_' + index).trigger('click');
-        }
-        // 关闭侧边栏
-        $('#guide').trigger(click);
-    },
-    closeTab: function ($item) {
-        var closeable = $item.data('closeable');
-        if (closeable != false) {
-            // 如果当前时激活状态则关闭后激活左边选项卡
-            if ($item.hasClass('cur')) {
-                $item.prev().trigger('click');
-            }
-            // 关闭当前选项卡
-            var index = $item.data('index');
-            $('#iframe_' + index).remove();
-            $item.remove();
-        }
+function addTab(title, url) {
+    // 选项卡标识符为url中的数字和字母
+    var index = url.replace(/[^a-zA-Z0-9]+/g, '_');
+    // 激活或者创建新选项卡
+    if ($('#tab_' + index).length == 0) {
+        // 添加选项卡
+        $('.content_tab li').removeClass('cur');
+        var tab = '<li id="tab_' + index + '" data-index="' + index + '" class="cur">' +
+            '<a class="waves-effect waves-light">' + title + '</a></li>';
+        $('.content_tab>ul').append(tab);
+        // 添加iframe
+        $('.iframe').removeClass('cur');
+        var iframe = '<div id="iframe_' + index + '" class="iframe cur">' +
+            '<iframe class="tab_iframe" src="' + url + '" width="100%" frameborder="0"' +
+            ' scrolling="auto" onload="changeFrameHeight(this)"></iframe></div>';
+        $('.content_main').append(iframe);
         initScrollShow();
+        $('.content_tab>ul').animate({
+            scrollLeft: document.getElementById('tabs').scrollWidth
+            - document.getElementById('tabs').clientWidth
+        }, 200, function () {
+            initScrollState();
+        });
+    } else {
+        $('#tab_' + index).trigger('click');
     }
-};
+    // 关闭侧边栏
+    $('#guide').trigger(click);
+}
+
+function closeTab($item) {
+    var closeable = $item.data('closeable');
+    if (closeable != false) {
+        // 如果当前时激活状态则关闭后激活左边选项卡
+        if ($item.hasClass('cur')) {
+            $item.prev().trigger('click');
+        }
+        // 关闭当前选项卡
+        var index = $item.data('index');
+        $('#iframe_' + index).remove();
+        $item.remove();
+    }
+    initScrollShow();
+}
+
 function initScrollShow() {
     if (document.getElementById('tabs').scrollWidth
         > document.getElementById('tabs').clientWidth) {
@@ -227,6 +229,7 @@ function initScrollShow() {
         $('.content_tab').removeClass('scroll');
     }
 }
+
 function initScrollState() {
     if ($('.content_tab>ul').scrollLeft() == 0) {
         $('.tab_left>a').removeClass('active');
@@ -234,7 +237,7 @@ function initScrollState() {
         $('.tab_left>a').addClass('active');
     }
     if (($('.content_tab>ul').scrollLeft()
-        + document.getElementById('tabs').clientWidth)
+            + document.getElementById('tabs').clientWidth)
         >= document.getElementById('tabs').scrollWidth) {
         $('.tab_right>a').removeClass('active');
     } else {
@@ -245,6 +248,7 @@ function initScrollState() {
 // 全屏模式
 if (!$.util.supportsFullScreen)
     $("#fullScreenBtn").hide();
+
 function fullPage() {
     if ($.util.isFullScreen()) {
         $.util.cancelFullScreen();
