@@ -20,7 +20,7 @@ a, a:hover, a:active, a:focus {
 /** 头部 **/
 #header {
     width: 100%;
-    height: 60px;
+    height: 55px;
     padding: 0 10px;
     position: fixed;
     z-index: 11;
@@ -189,7 +189,6 @@ a, a:hover, a:active, a:focus {
     padding: 10px 20px;
     font-size: 16px;
     -webkit-transition: background-color;
-    -o-transition: background-color;
     transition: background-color;
     -webkit-transition-duration: .3s;
     transition-duration: .3s
@@ -212,15 +211,15 @@ a, a:hover, a:active, a:focus {
 /** 正文 **/
 #main {
     height: 100%;
-    padding-top: 60px;
+    padding-top: 55px;
     padding-bottom: 0
 }
 
 /* 侧边栏响应式 */
 @media (max-width: 1279px) {
     #sidebar {
-        -webkit-transform: translate3d(-250px, 0, 0);
-        transform: translate3d(-250px, 0, 0);
+        -webkit-transform: translate3d(-240px, 0, 0);
+        transform: translate3d(-240px, 0, 0);
         box-shadow: 0 1px 5px rgba(14, 18, 21, .38)
     }
 
@@ -234,14 +233,13 @@ a, a:hover, a:active, a:focus {
     }
 }
 
-
 /** 侧边栏 **/
 #sidebar {
     position: fixed;
-    width: 250px;
+    width: 230px;
     background: #fff;
-    height: calc(100% - 60px);
-    top: 60px;
+    height: calc(100% - 55px);
+    top: 55px;
     transition: all;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
@@ -253,8 +251,7 @@ a, a:hover, a:active, a:focus {
 /* 侧边栏个人信息 */
 .sp-profile > a {
     display: block;
-    height: 126px;
-    margin-bottom: 5px;
+    height: 120px;
     width: 100%;
     background-size: 100%;
     text-decoration: none
@@ -276,16 +273,15 @@ a, a:hover, a:active, a:focus {
     background: rgba(0, 0, 0, .25);
     padding: 3px 20px;
     color: #fff;
-    margin-top: 20px;
+    margin-top: 14px;
     position: relative
 }
 
 .sp-profile > a .sp-info > i {
     font-size: 18px;
-    line-height: 100%;
     position: absolute;
+    top: 6px;
     right: 18px;
-    top: 8px;
     -webkit-transition: all;
     -o-transition: all;
     transition: all;
@@ -330,7 +326,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .main-menu > li > a {
-    padding: 14px 20px 14px 65px;
+    padding: 14px 30px 14px 45px;
     display: block;
     font-weight: 500;
     position: relative;
@@ -339,7 +335,7 @@ a, a:hover, a:active, a:focus {
 
 .main-menu > li > a > i {
     position: absolute;
-    left: 25px;
+    left: 15px;
     font-size: 18px;
     top: 2px;
     width: 25px;
@@ -362,7 +358,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .sub-menu ul > li > a {
-    padding: 8px 20px 8px 65px;
+    padding: 8px 30px 8px 45px;
     font-weight: 500;
     display: block;
     color: #4C4C4C
@@ -401,14 +397,16 @@ a, a:hover, a:active, a:focus {
 
 @media (min-width: 1280px) {
     #content {
-        padding-left: 250px;
+        padding-left: 230px;
     }
 }
 
 #content {
     height: 100%;
     padding-right: 0;
-    transition: all;
+    transition: padding-left;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s
 }
 
 /* 内容区 */
