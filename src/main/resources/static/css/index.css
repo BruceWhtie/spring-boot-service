@@ -153,7 +153,6 @@ a, a:hover, a:active, a:focus {
     z-index: 1;
     position: relative;
     -webkit-transition: background-color;
-    -o-transition: background-color;
     transition: background-color;
     -webkit-transition-duration: 250ms;
     transition-duration: 250ms;
@@ -283,7 +282,6 @@ a, a:hover, a:active, a:focus {
     top: 6px;
     right: 18px;
     -webkit-transition: all;
-    -o-transition: all;
     transition: all;
     -webkit-transition-duration: .3s;
     transition-duration: .3s
@@ -292,7 +290,6 @@ a, a:hover, a:active, a:focus {
 .sp-profile.toggled .sp-info > i {
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
     transform: rotate(90deg)
 }
 
@@ -301,8 +298,7 @@ a, a:hover, a:active, a:focus {
     margin: 0
 }
 
-.fa,
-.glyphicon {
+.fa, .glyphicon {
     display: inline-block;
     font-size: inherit;
     text-rendering: auto;
@@ -404,7 +400,7 @@ a, a:hover, a:active, a:focus {
 #content {
     height: 100%;
     padding-right: 0;
-    transition: padding-left;
+    transition: all;
     -webkit-transition-duration: .3s;
     transition-duration: .3s
 }
