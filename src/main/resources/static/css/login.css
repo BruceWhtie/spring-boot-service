@@ -4,6 +4,7 @@ body {
     font-family: 'Microsoft YaHei';
     font-size: 18px;
     font-weight: 400;
+    overflow: auto;
     background: #ECECEC;
 }
 
@@ -19,6 +20,7 @@ a, a:hover, a:active, a:focus {
 body:before {
     height: 50%;
     width: 100%;
+    min-width: 600px;
     position: absolute;
     top: 0;
     left: 0;

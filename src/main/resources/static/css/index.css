@@ -1,6 +1,7 @@
 /* 全局样式 */
 body {
     height: 100%;
+    min-width: 600px;
     position: relative;
     font-family: 'Microsoft YaHei';
     font-size: 16px;
@@ -62,8 +63,8 @@ a, a:hover, a:active, a:focus {
     transition-duration: .3s;
     transform: scale(0);
     z-index: 0;
-    margin-top: -25px;
-    margin-left: -23px
+    margin-top: -22px;
+    margin-left: -24px
 }
 
 .line-trigger.toggled:before {
@@ -73,10 +74,10 @@ a, a:hover, a:active, a:focus {
 
 .line-wrap {
     width: 20px;
-    height: 12px;
+    height: 20px;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
-    margin: 12px 20px
+    margin: 8px 20px
 }
 
 .toggled .line-wrap {
