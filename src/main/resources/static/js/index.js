@@ -3,16 +3,14 @@ var click = device.mobile() ? 'touchstart' : 'click';
 $(function () {
     // 侧边栏操作按钮
     $(document).on(click, '#guide', function () {
-        $(this).toggleClass('toggled');
-        $('#sidebar').toggleClass('toggled');
+        // 当主内容区变大后，点击菜单后隐藏
+        if (document.body.clientWidth - $('#content').width() < 100) {
+            $(this).toggleClass('toggled');
+            $('#sidebar').toggleClass('toggled');
+        }
     });
-    // 侧边栏二级菜单
-    $(document).on('click', '.sub-menu a', function () {
-        $(this).next().slideToggle(200);
-        $(this).parent().toggleClass('toggled');
-    });
-    // 个人资料
-    $(document).on('click', '.sp-profile a', function () {
+    // 侧边栏点击开关子项
+    $(document).on('click', '.sub-menu a, .sp-profile a', function () {
         $(this).next().slideToggle(200);
         $(this).parent().toggleClass('toggled');
     });
