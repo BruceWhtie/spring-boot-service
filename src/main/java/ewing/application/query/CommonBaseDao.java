@@ -29,7 +29,7 @@ import java.util.List;
  */
 @Repository
 @SuppressWarnings("unchecked")
-public class BaseCommonDao implements CommonDao {
+public class CommonBaseDao implements CommonDao {
 
     @Autowired
     protected SQLQueryFactory queryFactory;

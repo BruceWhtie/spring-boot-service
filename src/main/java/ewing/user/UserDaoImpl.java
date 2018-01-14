@@ -1,8 +1,7 @@
 package ewing.user;
 
 import com.querydsl.core.types.Projections;
-import ewing.application.query.BaseBeanDao;
-import ewing.application.query.BeanDao;
+import ewing.application.query.BeanBaseDao;
 import ewing.security.AuthorityOrRole;
 import ewing.security.PermissionTree;
 import ewing.security.SecurityUser;
@@ -14,7 +13,7 @@ import java.util.List;
  * 用户数据访问实现。
  */
 @Repository
-public class UserDaoImpl extends BaseBeanDao implements UserDao {
+public class UserDaoImpl extends BeanBaseDao implements UserDao {
 
     public UserDaoImpl() {
         super(qUser);

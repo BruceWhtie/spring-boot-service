@@ -27,7 +27,7 @@ import java.util.List;
  * 数据访问支持类。
  */
 @SuppressWarnings("unchecked")
-public class BaseBeanDao implements BeanDao {
+public class BeanBaseDao implements BeanDao {
 
     @Autowired
     protected SQLQueryFactory queryFactory;
@@ -36,7 +36,7 @@ public class BaseBeanDao implements BeanDao {
 
     protected final List<Path> keyPaths;
 
-    public BaseBeanDao(RelationalPathBase base) {
+    public BeanBaseDao(RelationalPathBase base) {
         if (base == null) {
             throw new IllegalArgumentException("PathBase can not null.");
         }
