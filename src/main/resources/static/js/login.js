@@ -1,4 +1,9 @@
 $(function () {
+    // 使用顶层窗口登录
+    if (window !== window.top) {
+        window.top.location.href = 'login.html';
+    }
+
     // Waves初始化
     Waves.displayEffect();
     // 输入框获取焦点后出现下划线
@@ -9,17 +14,19 @@ $(function () {
     });
 
     // 点击登录按钮
-    $('#login-button').click(login);
+    $('#login-button').click(loginAction);
     // 回车事件
     $('#username, #password').keypress(function (event) {
         if (13 === event.keyCode) {
-            login();
+            loginAction();
         }
     });
 });
 
-// 登录请求
-function login() {
+/**
+ * 登录请求
+ */
+function loginAction() {
     $.ajax({
         url: 'login',
         type: 'POST',
@@ -30,7 +37,7 @@ function login() {
         },
         success: function (result) {
             if (result.success) {
-                location.href = 'index.html';
+                window.top.location.href = 'index.html';
             } else {
                 $('#login-alert').text('登录失败，请检查账号密码是否正确！').show();
                 setTimeout(function () {
