@@ -270,6 +270,7 @@ function initUserProfiles(user) {
     }
     if (user) {
         createSideMenu(user.authorityTree);
+        return;
     }
     $.getJSON('security/getCurrentUser', function (result) {
         if (result.success) {
