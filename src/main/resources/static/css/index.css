@@ -323,7 +323,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .main-menu > li > a {
-    padding: 14px 30px 14px 42px;
+    padding: 12px 30px 14px 42px;
     display: block;
     font-weight: 500;
     position: relative;
@@ -332,7 +332,7 @@ a, a:hover, a:active, a:focus {
 
 .main-menu > li > a > i {
     position: absolute;
-    left: 15px;
+    left: 12px;
     font-size: 18px;
     top: 2px;
     width: 25px;
@@ -347,7 +347,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .sub-menu ul > li:first-child > a {
-    padding-top: 14px
+    padding-top: 12px
 }
 
 .sub-menu ul > li:last-child > a {
@@ -359,6 +359,10 @@ a, a:hover, a:active, a:focus {
     font-weight: 500;
     display: block;
     color: #4C4C4C
+}
+
+.sub-menu ul > li > a > i {
+    padding-right: 10px;
 }
 
 .sub-menu.toggled > ul {
