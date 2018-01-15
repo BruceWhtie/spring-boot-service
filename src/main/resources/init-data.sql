@@ -5,7 +5,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2018-01-13 02:12:38
+Date: 2018-01-16 03:43:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,15 +25,23 @@ CREATE TABLE `authority` (
   PRIMARY KEY (`authority_id`),
   KEY `parent_id` (`parent_id`),
   CONSTRAINT `authority_ibfk_1` FOREIGN KEY (`parent_id`) REFERENCES `authority` (`authority_id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of authority
 -- ----------------------------
-INSERT INTO `authority` VALUES ('1', '用户管理', 'USER_MANAGE', 'PAGE', '/user', null, '2017-12-23 17:48:53');
-INSERT INTO `authority` VALUES ('2', '用户新增', 'USER_ADD', 'ACTION', '/addUser', '1', '2017-12-23 17:49:27');
-INSERT INTO `authority` VALUES ('3', '用户修改', 'USER_UPDATE', 'ACTION', '/updateUser', '1', '2017-12-23 17:50:41');
-INSERT INTO `authority` VALUES ('4', '用户删除', 'USER_DELETE', 'ACTION', '/deleteUser', '1', '2017-12-23 17:51:03');
+INSERT INTO `authority` VALUES ('1', '用户权限', 'USER_AUTHORITY', 'MENU', '<a class=\"waves-effect\">\r\n  <i class=\"fa fa-user-secret\"></i>用户权限\r\n  <i class=\"expand-menu fa fa-caret-right\"></i>\r\n</a>', null, '2017-12-23 17:51:03');
+INSERT INTO `authority` VALUES ('2', '用户管理', 'USER_MANAGE', 'PAGE', '<a class=\"waves-effect\" onclick=\"addTab(\'用户管理\', \'crud.html?1\')\">\r\n  <i class=\"fa fa-users\"></i>用户管理\r\n</a>', '1', '2017-12-23 17:48:53');
+INSERT INTO `authority` VALUES ('3', '用户新增', 'USER_ADD', 'ACTION', null, '2', '2017-12-23 17:49:27');
+INSERT INTO `authority` VALUES ('4', '用户修改', 'USER_UPDATE', 'ACTION', null, '2', '2017-12-23 17:50:41');
+INSERT INTO `authority` VALUES ('5', '用户删除', 'USER_DELETE', 'ACTION', null, '2', '2017-12-23 17:51:03');
+INSERT INTO `authority` VALUES ('6', '角色权限', 'ROLE_AUTHORITY', 'PAGE', '<a class=\"waves-effect\" onclick=\"addTab(\'角色管理\', \'crud.html?2\')\">\r\n  <i class=\"fa fa-user-circle\"></i>角色权限\r\n</a>', '1', '2017-12-23 17:48:53');
+INSERT INTO `authority` VALUES ('7', '角色新增', 'ROLE_ADD', 'ACTION', null, '6', '2017-12-23 17:49:27');
+INSERT INTO `authority` VALUES ('8', '角色修改', 'ROLE_UPDATE', 'ACTION', null, '6', '2017-12-23 17:50:41');
+INSERT INTO `authority` VALUES ('9', '角色删除', 'ROLE_DELETE', 'ACTION', null, '6', '2017-12-23 17:51:03');
+INSERT INTO `authority` VALUES ('10', '公共资源', 'COMMON_RESOURCE', 'MENU', '<a class=\"waves-effect\">\r\n  <i class=\"fa fa-th-large\"></i>公共资源\r\n  <i class=\"expand-menu fa fa-caret-right\"></i>\r\n</a>', null, '2018-01-16 01:25:55');
+INSERT INTO `authority` VALUES ('11', '数据字典', 'DATA_DICT', 'PAGE', '<a class=\"waves-effect\" onclick=\"addTab(\'数据字典\', \'crud.html?3\')\">\r\n  <i class=\"fa fa-th-list\"></i>数据字典\r\n</a>', '10', '2018-01-16 01:26:55');
+INSERT INTO `authority` VALUES ('12', '接口文档', 'API_DOCMENT', 'PAGE', '<a class=\"waves-effect\" href=\"swagger-ui.html\" target=\"_blank\">\r\n  <i class=\"fa fa-book\"></i>接口文档\r\n</a>', null, '2018-01-16 01:28:04');
 
 -- ----------------------------
 -- Table structure for permission
@@ -90,11 +98,19 @@ CREATE TABLE `role_authority` (
 -- ----------------------------
 -- Records of role_authority
 -- ----------------------------
-INSERT INTO `role_authority` VALUES ('1', '1', '2017-12-23 17:51:16');
-INSERT INTO `role_authority` VALUES ('1', '2', '2017-12-23 17:51:33');
-INSERT INTO `role_authority` VALUES ('1', '3', '2017-12-23 17:51:40');
-INSERT INTO `role_authority` VALUES ('1', '4', '2017-12-23 17:51:46');
-INSERT INTO `role_authority` VALUES ('2', '1', '2017-12-23 17:51:54');
+INSERT INTO `role_authority` VALUES ('1', '1', '2018-01-16 01:24:03');
+INSERT INTO `role_authority` VALUES ('1', '2', '2017-12-23 17:51:16');
+INSERT INTO `role_authority` VALUES ('1', '3', '2017-12-23 17:51:33');
+INSERT INTO `role_authority` VALUES ('1', '4', '2017-12-23 17:51:40');
+INSERT INTO `role_authority` VALUES ('1', '5', '2017-12-23 17:51:46');
+INSERT INTO `role_authority` VALUES ('1', '6', '2018-01-16 01:24:23');
+INSERT INTO `role_authority` VALUES ('1', '7', '2018-01-16 01:24:31');
+INSERT INTO `role_authority` VALUES ('1', '8', '2018-01-16 01:24:40');
+INSERT INTO `role_authority` VALUES ('1', '9', '2018-01-16 01:24:49');
+INSERT INTO `role_authority` VALUES ('1', '10', '2018-01-16 01:28:38');
+INSERT INTO `role_authority` VALUES ('1', '11', '2018-01-16 01:28:46');
+INSERT INTO `role_authority` VALUES ('1', '12', '2018-01-16 01:28:55');
+INSERT INTO `role_authority` VALUES ('2', '1', '2018-01-16 01:24:15');
 
 -- ----------------------------
 -- Table structure for role_permission
@@ -132,8 +148,8 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', '元宝', 'yb', '', 'MALE', '2000-02-10', '2017-08-23 18:43:52');
-INSERT INTO `user` VALUES ('2', '露娜', 'ln', '', 'FEMALE', '2002-05-20', '2017-08-24 12:06:02');
+INSERT INTO `user` VALUES ('1', 'ewing', 'yb', '元宝', 'MALE', '2000-02-10', '2017-08-23 18:43:52');
+INSERT INTO `user` VALUES ('2', 'rose', 'zx', '紫霞', 'FEMALE', '2002-05-20', '2017-08-24 12:06:02');
 
 -- ----------------------------
 -- Table structure for user_permission
