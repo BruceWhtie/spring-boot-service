@@ -1,6 +1,5 @@
 package ewing.security;
 
-import ewing.entity.Permission;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -25,7 +24,7 @@ public class UserHasPermission implements PermissionEvaluator {
             if (target == null) {
                 return securityUser.hasPermission(code);
             } else {
-                Permission permission = securityUser.getPermissionByCode(code);
+                PermissionNode permission = securityUser.getPermissionByCode(code);
                 return permission != null && target.toString().equals(permission.getTarget());
             }
         } else {
@@ -46,7 +45,7 @@ public class UserHasPermission implements PermissionEvaluator {
                 return securityUser.hasPermission(code);
             } else {
                 // 至少有一个目标参数不为空，不为空的参数都要被满足。
-                Permission permission = securityUser.getPermissionByCode(code);
+                PermissionNode permission = securityUser.getPermissionByCode(code);
                 return (targetId == null || targetId.toString().equals(permission.getTarget()))
                         && (targetType == null || targetType.equals(permission.getType()));
             }

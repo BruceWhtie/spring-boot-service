@@ -47,8 +47,8 @@ public class Page<T> {
         return this;
     }
 
-    public Page<T> forEach(Consumer<T> consumer){
-        if(rows!=null && rows.size()>0) {
+    public Page<T> forEach(Consumer<T> consumer) {
+        if (rows != null && rows.size() > 0) {
             this.rows.forEach(consumer);
         }
         return this;

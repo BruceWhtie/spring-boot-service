@@ -1,8 +1,10 @@
 package ewing.application.common;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 /**
@@ -13,6 +15,12 @@ import java.text.SimpleDateFormat;
 public class JsonConverter {
 
     public static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
+    public static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
+    static {
+        OBJECT_MAPPER.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        OBJECT_MAPPER.setDateFormat(new SimpleDateFormat(DATE_TIME_FORMAT));
+    }
 
     /**
      * 把Json字符串转换为相应的Java对象。
@@ -23,12 +31,9 @@ public class JsonConverter {
      */
     public static <T> T toObject(String json, Class<T> type) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-            objectMapper.setDateFormat(new SimpleDateFormat(DATE_TIME_FORMAT));
-            return objectMapper.readValue(json, type);
-        } catch (Exception e) {
-            return null;
+            return OBJECT_MAPPER.readValue(json, type);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -40,12 +45,9 @@ public class JsonConverter {
      */
     public static String toJson(Object object) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-            objectMapper.setDateFormat(new SimpleDateFormat(DATE_TIME_FORMAT));
-            return objectMapper.writeValueAsString(object);
-        } catch (Exception e) {
-            return null;
+            return OBJECT_MAPPER.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
     }
 

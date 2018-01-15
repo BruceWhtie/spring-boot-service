@@ -5,9 +5,6 @@ import com.querydsl.core.types.dsl.Expressions;
 import ewing.application.AppAsserts;
 import ewing.application.paging.Page;
 import ewing.entity.User;
-import ewing.security.AuthorityOrRole;
-import ewing.security.PermissionTree;
-import ewing.security.SecurityUser;
 import ewing.user.vo.FindUserParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -17,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * 用户服务实现。
@@ -76,24 +72,6 @@ public class UserServiceImpl implements UserService {
     public long deleteUser(Long userId) {
         AppAsserts.notNull(userId, "用户ID不能为空！");
         return userDao.deleteByKey(userId);
-    }
-
-    @Override
-    public SecurityUser getByUsername(String username) {
-        AppAsserts.hasText(username, "用户名不能为空！");
-        return userDao.getByUsername(username);
-    }
-
-    @Override
-    public List<AuthorityOrRole> getUserAuthorities(Long userId) {
-        AppAsserts.notNull(userId, "用户ID不能为空！");
-        return userDao.getUserAuthorities(userId);
-    }
-
-    @Override
-    public List<PermissionTree> getUserPermissions(Long userId) {
-        AppAsserts.notNull(userId, "用户ID不能为空！");
-        return userDao.getUserPermissions(userId);
     }
 
 }
