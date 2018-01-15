@@ -4,7 +4,7 @@ $(function () {
     // 侧边栏操作按钮
     $(document).on(click, '#guide', function () {
         // 当主内容区变大后，点击菜单后隐藏
-        if ((document.body.clientWidth - $('#content').width() < 100)){
+        if (document.body.clientWidth - $('#content').width() < 100) {
             $(this).toggleClass('toggled');
             $('#sidebar').toggleClass('toggled');
         }
