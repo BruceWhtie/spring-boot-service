@@ -1,6 +1,7 @@
 package ewing.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ewing.application.common.TreeUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class SecurityUser implements UserDetails {
      * 功能点权限。
      */
     private List<AuthorityNode> authorities;
+    private List<AuthorityNode> authorityTree;
 
     /**
      * 数据许可权限。
@@ -35,8 +37,13 @@ public class SecurityUser implements UserDetails {
      * 注解中hasRole表达式会调用该方法。
      */
     @Override
+    @JsonIgnore
     public List<AuthorityNode> getAuthorities() {
         return authorities;
+    }
+
+    public List<AuthorityNode> getAuthorityTree() {
+        return authorityTree;
     }
 
     /**
@@ -44,6 +51,7 @@ public class SecurityUser implements UserDetails {
      */
     public void setAuthorities(List<AuthorityNode> authorities) {
         this.authorities = authorities;
+        this.authorityTree = TreeUtils.toTree(authorities);
     }
 
     @JsonIgnore

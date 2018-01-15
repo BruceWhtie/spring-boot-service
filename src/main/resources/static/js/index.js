@@ -1,6 +1,9 @@
 // 管理页面程序
 var click = device.mobile() ? 'touchstart' : 'click';
 $(function () {
+    // 初始用户数据
+    initUserProfiles();
+
     // 侧边栏操作按钮
     $(document).on(click, '#guide', function () {
         // 当主内容区变大后，点击菜单后隐藏
@@ -256,3 +259,62 @@ function fullPage() {
         $("#full-screen").attr("class", "fa fa-compress him-icon");
     }
 }
+
+/**
+ * 初始化用户数据
+ */
+function initUserProfiles(user) {
+    if (window.sessionStorage) {
+        var savedUser = window.sessionStorage.getItem("currentUser");
+        user = user || (savedUser && JSON.parse(savedUser)) || false;
+    }
+    if (user) {
+        var html = createMenuHtml(user.authorityTree);
+        $menu = $('#side-menu');
+        $menu.html($menu.html() + html);
+        return;
+    }
+    $.getJSON('security/getCurrentUser', function (result) {
+        if (result.success) {
+            if (window.sessionStorage) {
+                window.sessionStorage.setItem("currentUser", JSON.stringify(result.data));
+                initUserProfiles();
+            } else {
+                initUserProfiles(result.data);
+            }
+        }
+    });
+}
+
+/**
+ * 创建菜单目录HTML
+ */
+function createMenuHtml(menus) {
+    var html = '';
+    if (menus && menus.length) {
+        // 遍历主菜单
+        menus.forEach(function (menu) {
+            var children = menu.children;
+            if (children && children.length) {
+                // 带子菜单
+                html += '<li class="sub-menu">';
+            } else {
+                html += '<li>';
+            }
+            html += menu.content;
+            // 遍历子菜单
+            if (children && children.length) {
+                html += '<ul>';
+                children.forEach(function (child) {
+                    html += '<li>';
+                    html += child.content;
+                    html += '</li>';
+                });
+                html += '</ul>';
+            }
+            html += '</li>';
+        });
+    }
+    return html;
+}
+
