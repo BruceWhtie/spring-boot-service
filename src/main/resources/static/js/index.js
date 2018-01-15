@@ -269,10 +269,7 @@ function initUserProfiles(user) {
         user = user || (savedUser && JSON.parse(savedUser)) || false;
     }
     if (user) {
-        var html = createMenuHtml(user.authorityTree);
-        $menu = $('#side-menu');
-        $menu.html($menu.html() + html);
-        return;
+        createSideMenu(user.authorityTree);
     }
     $.getJSON('security/getCurrentUser', function (result) {
         if (result.success) {
@@ -287,9 +284,9 @@ function initUserProfiles(user) {
 }
 
 /**
- * 创建菜单目录HTML
+ * 创建侧边菜单目录
  */
-function createMenuHtml(menus) {
+function createSideMenu(menus) {
     var html = '';
     if (menus && menus.length) {
         // 遍历主菜单
@@ -315,6 +312,7 @@ function createMenuHtml(menus) {
             html += '</li>';
         });
     }
-    return html;
+    $menu = $('#side-menu');
+    $menu.html($menu.html() + html);
 }
 
