@@ -36,11 +36,11 @@ $(function () {
 
 // iframe高度自适应
 function changeFrameHeight(ifm) {
-    ifm.height = document.documentElement.clientHeight - 105;
+    ifm.height = document.documentElement.clientHeight - 102;
 }
 
 function resizeFrameHeight() {
-    $('.tab_iframe').css('height', document.documentElement.clientHeight - 105);
+    $('.tab_iframe').css('height', document.documentElement.clientHeight - 102);
     $('md-tab-content').css('left', '0');
 }
 
@@ -55,11 +55,11 @@ $(function () {
     // 选项卡点击
     $(document).on('click', '.content_tab li', function () {
         // 切换选项卡
-        $('.content_tab li').removeClass('cur');
-        $(this).addClass('cur');
+        $('.content_tab li').removeClass('curiframe');
+        $(this).addClass('curiframe');
         // 切换iframe
-        $('.iframe').removeClass('cur');
-        $('#iframe_' + $(this).data('index')).addClass('cur');
+        $('.iframe').removeClass('curiframe');
+        $('#iframe_' + $(this).data('index')).addClass('curiframe');
         var marginLeft = ($('#tabs').css('marginLeft').replace('px', ''));
         // 滚动到可视区域:在左侧
         if ($(this).position().left < marginLeft) {
@@ -180,13 +180,13 @@ function addTab(title, url) {
     // 激活或者创建新选项卡
     if ($('#tab_' + index).length == 0) {
         // 添加选项卡
-        $('.content_tab li').removeClass('cur');
-        var tab = '<li id="tab_' + index + '" data-index="' + index + '" class="cur">' +
+        $('.content_tab li').removeClass('curiframe');
+        var tab = '<li id="tab_' + index + '" data-index="' + index + '" class="curiframe">' +
             '<a class="waves-effect waves-light">' + title + '</a></li>';
         $('.content_tab>ul').append(tab);
         // 添加iframe
-        $('.iframe').removeClass('cur');
-        var iframe = '<div id="iframe_' + index + '" class="iframe cur">' +
+        $('.iframe').removeClass('curiframe');
+        var iframe = '<div id="iframe_' + index + '" class="iframe curiframe">' +
             '<iframe class="tab_iframe" src="' + url + '" width="100%" frameborder="0"' +
             ' scrolling="auto" onload="changeFrameHeight(this)"></iframe></div>';
         $('.content_main').append(iframe);
@@ -208,7 +208,7 @@ function closeTab($item) {
     var closeable = $item.data('closeable');
     if (closeable != false) {
         // 如果当前时激活状态则关闭后激活左边选项卡
-        if ($item.hasClass('cur')) {
+        if ($item.hasClass('curiframe')) {
             $item.prev().trigger('click');
         }
         // 关闭当前选项卡

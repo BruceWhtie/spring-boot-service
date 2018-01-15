@@ -16,12 +16,6 @@ var Common = {
                 });
             }
         }
-    },
-    /**
-     * 获取可用空间高度
-     */
-    getContentHeight: function () {
-        return $(window).height() - 20;
     }
 };
 

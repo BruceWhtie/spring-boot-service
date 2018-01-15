@@ -12,7 +12,7 @@ $(document).ready(function () {
             params.search = $('#searchInput').val();
             return params;
         },
-        height: Common.getContentHeight(),
+        height: $(window).height(),
         striped: true,
         showRefresh: true,
         showToggle: true,
@@ -62,7 +62,7 @@ $(document).ready(function () {
     // 数据表格动态高度
     $(window).resize(function () {
         $('#mainTable').bootstrapTable('resetView', {
-            height: Common.getContentHeight()
+            height: $(window).height()
         });
     });
 
