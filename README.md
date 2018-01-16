@@ -54,6 +54,8 @@ DSL使用自动生成的表模型映射对象代替SQL中的表对象，具有�
 我们最近的一个项目的后台管理也用DSL，对复杂报表查询也都没有问题。因为是跨数据库的，所以不支持特定数据库独有的SQL语法（支持数据库函数和HINTS），暂时没有碰到非用数据库独有的SQL不可的场景（万一有则启用JdbcTemplate）。  
 
 ## 管理界面预览：
+![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home.gif)  
+  
 ![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-blue.png)  
   
 ![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-green.png)  
