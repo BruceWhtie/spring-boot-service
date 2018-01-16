@@ -19,5 +19,10 @@ Swagger2：扫描Controller及标记注解，生成接口文档，访问路径�
 Spring Test：Mock测试用例参考，测试驱动开发有助于编写简洁可用和高质量的代码，并加速开发过程。  
 MySql数据库：默认使用MySql，驱动和配置参考 pom.xml 和 application.yml 中的数据库连接信息。  
 其他支持：OkHttpUtils、RSA和AES加密、JWT、Spring Boot DevTools、Logback配置。
-
-![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home.png)
+  
+  
+![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-blue.png)  
+  
+![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-green.png)  
+  
+![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-pink.png)  
