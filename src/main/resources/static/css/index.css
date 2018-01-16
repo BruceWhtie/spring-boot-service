@@ -93,7 +93,7 @@ a, a:hover, a:active, a:focus {
     transition: all;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
-    background-color: #fff
+    background-color: white
 }
 
 .toggled .line-wrap .line.top {
@@ -124,10 +124,10 @@ a, a:hover, a:active, a:focus {
 }
 
 #logo_title {
-    color: #fff;
+    color: white;
     height: 33px;
     line-height: 33px;
-    font-size: 22px
+    font-size: 22px;
 }
 
 /* 头部右侧工具按钮 */
@@ -148,7 +148,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .hi-menu > li > a {
-    color: #fff;
+    color: white;
     display: block;
     text-align: center;
     z-index: 1;
@@ -237,7 +237,7 @@ a, a:hover, a:active, a:focus {
 #sidebar {
     position: fixed;
     width: 230px;
-    background: #fff;
+    background: white;
     height: calc(100% - 55px);
     top: 55px;
     transition: all;
@@ -272,12 +272,12 @@ a, a:hover, a:active, a:focus {
 .sp-profile > a > .sp-info {
     background: rgba(0, 0, 0, .25);
     padding: 3px 20px;
-    color: #fff;
+    color: white;
     margin-top: 14px;
     position: relative
 }
 
-.sp-profile > a .sp-info > i {
+.sp-profile > a > .sp-info > i {
     font-size: 18px;
     position: absolute;
     top: 6px;
@@ -455,7 +455,7 @@ a, a:hover, a:active, a:focus {
     width: 40px;
     height: 42px;
     line-height: 42px;
-    color: #fff;
+    color: white;
     text-align: center;
     display: none;
 }
@@ -480,7 +480,7 @@ a, a:hover, a:active, a:focus {
 
 .tab_left > .active,
 .tab_right > .active {
-    color: #fff;
+    color: white;
 }
 
 .content_tab > ul > li {
@@ -507,7 +507,7 @@ a, a:hover, a:active, a:focus {
 }
 
 .content_tab > ul > .curiframe > a {
-    color: #fff;
+    color: white;
 }
 
 .content_tab > ul > li > a:after {

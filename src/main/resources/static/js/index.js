@@ -264,24 +264,16 @@ function fullPage() {
  * 初始化用户数据
  */
 function initUserProfiles(user) {
-    if (window.sessionStorage) {
-        var savedUser = window.sessionStorage.getItem("currentUser");
-        user = user || (savedUser && JSON.parse(savedUser)) || false;
-    }
     if (user) {
+        $('#nickname').text(user.nickname);
         createSideMenu(user.authorityTree);
-        return;
-    }
-    $.getJSON('security/getCurrentUser', function (result) {
-        if (result.success) {
-            if (window.sessionStorage) {
-                window.sessionStorage.setItem("currentUser", JSON.stringify(result.data));
-                initUserProfiles();
-            } else {
+    } else {
+        $.getJSON('security/getCurrentUser', function (result) {
+            if (result.success) {
                 initUserProfiles(result.data);
             }
-        }
-    });
+        });
+    }
 }
 
 /**
