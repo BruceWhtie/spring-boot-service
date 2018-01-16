@@ -19,4 +19,4 @@ Spring Test：Mock测试用例参考，测试驱动开发有助于编写简洁�
 MySql数据库：默认使用MySql，驱动和配置参考 pom.xml 和 application.yml 中的数据库连接信息。  
 其他支持：OkHttpUtils、RSA和AES加密、JWT、Spring Boot DevTools、Logback配置。
 
-![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home.jpg)
+![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home.png)
