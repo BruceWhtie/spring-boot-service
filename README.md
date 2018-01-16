@@ -1,6 +1,7 @@
 # Spring Boot Service
 ### Spring Boot 整合常用框架组成完整可用的快速开发模板。
 更快的项目搭建、更高开发和运行效率、更灵活的应对需求变化、更好的可重构和维护性。  
+响应式后台界面改自zhengAdmin。  
 
 ## 集成的功能：
 Spring Boot：Spring Boot和Spring基础框架，提供容器、定时任务、异步调用和其他常用功能支持。  
