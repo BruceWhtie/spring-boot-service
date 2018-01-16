@@ -1,7 +1,7 @@
 # Spring Boot Service
 ### Spring Boot 整合常用框架组成完整可用的快速开发模板。
 更快的项目搭建、更高开发和运行效率、更灵活的应对需求变化、更好的可重构和维护性。  
-响应式后台界面改自zhengAdmin。  
+响应式管理界面改自zhengAdmin。  
 
 ## 集成的功能：
 Spring Boot：Spring Boot和Spring基础框架，提供容器、定时任务、异步调用和其他常用功能支持。  
@@ -19,8 +19,8 @@ Swagger2：扫描Controller及标记注解，生成接口文档，访问路径�
 Spring Test：Mock测试用例参考，测试驱动开发有助于编写简洁可用和高质量的代码，并加速开发过程。  
 MySql数据库：默认使用MySql，驱动和配置参考 pom.xml 和 application.yml 中的数据库连接信息。  
 其他支持：OkHttpUtils、RSA和AES加密、JWT、Spring Boot DevTools、Logback配置。
-  
-  
+
+## 管理界面预览：
 ![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-blue.png)  
   
 ![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-green.png)  
