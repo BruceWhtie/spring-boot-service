@@ -168,7 +168,6 @@ CREATE TABLE `user_permission` (
 -- ----------------------------
 -- Records of user_permission
 -- ----------------------------
-INSERT INTO `user_permission` VALUES ('2', '3', '2017-08-24 12:12:15');
 
 -- ----------------------------
 -- Table structure for user_role
