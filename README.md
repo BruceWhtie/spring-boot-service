@@ -55,9 +55,3 @@ DSL使用自动生成的表模型映射对象代替SQL中的表对象，具有�
 
 ## 管理界面预览：
 ![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home.gif)  
-  
-![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-blue.png)  
-  
-![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-green.png)  
-  
-![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-pink.png)  
