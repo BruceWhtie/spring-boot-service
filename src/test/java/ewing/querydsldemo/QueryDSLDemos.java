@@ -39,6 +39,7 @@ import java.util.List;
 
 /**
  * 独立的QueryDSL查询案例可作为参考。
+ * 执行前请先执行src/test/resources/querydsldemo.sql。
  * 注意：测试事务会自动回滚。
  */
 @Transactional
