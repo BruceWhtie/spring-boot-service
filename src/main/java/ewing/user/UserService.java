@@ -1,6 +1,6 @@
 package ewing.user;
 
-import ewing.application.paging.Page;
+import ewing.application.query.Page;
 import ewing.entity.User;
 import ewing.user.vo.FindUserParam;
 

@@ -1,4 +1,4 @@
-package ewing.application.paging;
+package ewing.application.query;
 
 import java.util.List;
 import java.util.function.Consumer;

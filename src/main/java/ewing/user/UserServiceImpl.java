@@ -3,7 +3,7 @@ package ewing.user;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.Expressions;
 import ewing.application.AppAsserts;
-import ewing.application.paging.Page;
+import ewing.application.query.Page;
 import ewing.entity.User;
 import ewing.user.vo.FindUserParam;
 import org.springframework.beans.factory.annotation.Autowired;

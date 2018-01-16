@@ -5,8 +5,6 @@ import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.sql.RelationalPathBase;
 import com.querydsl.sql.dml.SQLUpdateClause;
-import ewing.application.paging.Page;
-import ewing.application.paging.Pager;
 
 import java.util.List;
 

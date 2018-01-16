@@ -4,8 +4,6 @@ import com.querydsl.core.group.GroupExpression;
 import com.querydsl.core.types.*;
 import com.querydsl.sql.RelationalPathBase;
 import com.querydsl.sql.SQLQuery;
-import ewing.application.paging.Page;
-import ewing.application.paging.Pager;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

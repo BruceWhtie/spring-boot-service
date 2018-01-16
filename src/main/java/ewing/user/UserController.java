@@ -1,7 +1,7 @@
 package ewing.user;
 
 import ewing.application.ResultMessage;
-import ewing.application.paging.Page;
+import ewing.application.query.Page;
 import ewing.entity.User;
 import ewing.user.vo.FindUserParam;
 import io.swagger.annotations.Api;

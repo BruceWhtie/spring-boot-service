@@ -1,6 +1,7 @@
 # Spring Boot Service
 ### Spring Boot 整合常用框架组成完整可用的快速开发模板。
-更快的项目搭建、更高开发和运行效率、更灵活的应对需求变化、更好的可重构和维护性。 
+更快的项目搭建、更高开发和运行效率、更灵活的应对需求变化、更好的可重构和维护性。  
+该模板项目适用于新项目快速迭代开发，提供了最基础的功能、工具类、相对完善的全局配置，方便快速上手。    
 首次启动前请修改pom.xml和application.yml中的数据库信息并执行init-data.sql。  
 响应式管理界面改自zhengAdmin。  
 
@@ -20,6 +21,11 @@ Swagger2：扫描Controller及标记注解，生成接口文档，访问路径�
 Spring Test：Mock测试用例参考，测试驱动开发有助于编写简洁可用和高质量的代码，并加速开发过程。  
 MySql数据库：默认使用MySql，驱动和配置参考 pom.xml 和 application.yml 中的数据库连接信息。  
 其他支持：OkHttpUtils、RSA和AES加密、JWT、Spring Boot DevTools、Logback配置。
+
+### Spring Security说明：
+Spring Security中的Role和Authority是同一个概念，但hasRole默认带前缀，建议使用hasAuthority。  
+项目目前已实现基于注解的功能权限控制（hasAuthority）和资源许可授权控制（hasPermission，若不需要删除Permission相关代码即可）。  
+
 
 ## 管理界面预览：
 ![image](https://github.com/ewingtsai/spring-boot-service/raw/master/screens/home-blue.png)  

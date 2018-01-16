@@ -1,4 +1,4 @@
-package ewing.application.paging;
+package ewing.application.query;
 
 /**
  * 分页参数。

@@ -15,8 +15,6 @@ import com.querydsl.sql.SQLQuery;
 import com.querydsl.sql.SQLQueryFactory;
 import com.querydsl.sql.dml.SQLInsertClause;
 import com.querydsl.sql.dml.SQLUpdateClause;
-import ewing.application.paging.Page;
-import ewing.application.paging.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Method;

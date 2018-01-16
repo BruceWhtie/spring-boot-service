@@ -1,6 +1,6 @@
 package ewing.user.vo;
 
-import ewing.application.paging.Pager;
+import ewing.application.query.Pager;
 
 public class FindUserParam extends Pager {
 
