@@ -229,6 +229,17 @@ public class BeanBaseDao implements BeanDao {
     }
 
     @Override
+    public long updateBeans(Object... beans) {
+        SQLUpdateClause update = queryFactory.update(base);
+        for (Object bean : beans) {
+            update.populate(bean)
+                    .where(beanKeyEquals(bean))
+                    .addBatch();
+        }
+        return update.isEmpty() ? 0L : update.execute();
+    }
+
+    @Override
     public SQLUpdateClause updaterByKey(Object key) {
         return queryFactory.update(base)
                 .where(keyEquals(key));

@@ -82,6 +82,12 @@ public interface BeanDao {
     long updateBean(Object bean);
 
     /**
+     * 批量根据对象中的ID属性和非null属性更新实体。
+     * 兼容带有对应ID属性且至少有一个要更新的属性的实体对象。
+     */
+    long updateBeans(Object... bean);
+
+    /**
      * 根据ID参数创建更新器。
      */
     SQLUpdateClause updaterByKey(Object key);

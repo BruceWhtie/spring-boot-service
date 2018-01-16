@@ -226,6 +226,17 @@ public class CommonBaseDao implements CommonDao {
     }
 
     @Override
+    public long updateBeans(RelationalPathBase<?> base, Object... beans) {
+        SQLUpdateClause update = queryFactory.update(base);
+        for (Object bean : beans) {
+            update.populate(bean)
+                    .where(beanKeyEquals(getKeyPaths(base), bean))
+                    .addBatch();
+        }
+        return update.isEmpty() ? 0L : update.execute();
+    }
+
+    @Override
     public SQLUpdateClause updaterByKey(RelationalPathBase<?> base, Object key) {
         return queryFactory.update(base)
                 .where(keyEquals(getKeyPaths(base), key));
